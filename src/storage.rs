@@ -4,7 +4,8 @@ use std::{
     collections::BTreeMap,
     fs::{self, File, OpenOptions},
     io::{self, Read, Seek, SeekFrom, Write},
-    os::unix::prelude::FileExt,
+    //os::unix::prelude::FileExt,
+    os::wasi::fs::FileExt,
     path::{Path, PathBuf},
 };
 

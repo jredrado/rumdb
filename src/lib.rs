@@ -1,4 +1,4 @@
-#![feature(map_first_last)]
+#![feature(map_first_last,wasi_ext)]
 
 use keydir::HashmapKeydir;
 use storage::DiskStorage;
@@ -30,4 +30,21 @@ impl DbOptions {
         self.max_log_file_size = value;
         self
     }
+}
+
+
+#[no_mangle]
+pub extern "C" fn main() {
+    use crate::{storage::Storage, RumDb};
+
+    let mut db = RumDb::open_default("/tmp/basic.rumdb/").unwrap();
+    println!("{:?}", db);
+
+    db.put(b"hello".to_vec(), b"world".to_vec()).unwrap();
+    assert_eq!(db.get(b"hello").unwrap(), Some(b"world".to_vec()));
+
+    db.remove(b"hello").unwrap();
+    
+    println!("{:?}", db.get(b"hello"));
+
 }

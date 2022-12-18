@@ -13,8 +13,11 @@ description = "Blazing fast key-value storage basec on Bitcask whitepaper"
 [badges]
 maintenance = { status = "actively-developed" }
 
+[lib]
+crate-type = ["cdylib"]
+
 [dependencies]
-chrono = "0.4"
+chrono-wasi = "0.4.10"
 log = "0.4"
 thiserror = "1.0"
 
