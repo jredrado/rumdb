@@ -1,7 +1,7 @@
 #![feature(map_first_last,wasi_ext)]
 
-use keydir::HashmapKeydir;
-use storage::DiskStorage;
+pub use keydir::HashmapKeydir;
+pub use storage::DiskStorage;
 
 pub mod errors;
 mod format;
@@ -32,7 +32,7 @@ impl DbOptions {
     }
 }
 
-
+/* 
 #[no_mangle]
 pub extern "C" fn main() {
     use crate::{storage::Storage};
@@ -48,3 +48,5 @@ pub extern "C" fn main() {
     println!("{:?}", db.get(b"hello"));
 
 }
+
+*/
