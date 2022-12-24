@@ -35,7 +35,7 @@ impl DbOptions {
 
 #[no_mangle]
 pub extern "C" fn main() {
-    use crate::{storage::Storage, RumDb};
+    use crate::{storage::Storage};
 
     let mut db = RumDb::open_default("/tmp/basic.rumdb/").unwrap();
     println!("{:?}", db);
